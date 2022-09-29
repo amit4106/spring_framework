@@ -3,6 +3,8 @@ package com.demo.webapp.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,5 +24,10 @@ public class EmployeeController {
 	@PostMapping("/emp")
 	public ResponseEntity<Employees> saveEmployees(@RequestBody Employees employees){
 		return new ResponseEntity<Employees>(empService.saveEmployees(employees), HttpStatus.CREATED);
+	}
+	
+	@GetMapping(value = "/findById")
+	public ResponseEntity<?> finById(@PathVariable Integer id){
+		return null;
 	}
 }
